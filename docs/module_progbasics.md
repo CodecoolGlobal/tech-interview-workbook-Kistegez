@@ -263,37 +263,104 @@
 #### What’s the difference between git and GitHub?
     Git is a distributed version control tool that can manage a development project's source code history, while GitHub is a cloud bades platform built around the Git tool. It is a website for monitoring git projects, commits, and branches.
 
+
 ## Software design
+
 
 ### Clean code
 
+
 #### What does clean code mean?
+    The code is clean if it can be understood easily, from understandability comes readability, cangeability, extensibility and maintainability. There is no duplications, no dead code, meaningful names, proper indentation, functional structure and no magic numbers in it.
+
 #### What steps do we usually do during a clean code refactoring?
+    1. Rename badly named variables and funcions (name magical number)
+    2. Fix badly formatted code
+    3. Clear repetitive code
+    4. Refactor long methods
+    5. Fix wrond comment usage
+    6. Delete dead codes
+
 
 ### Error handling
 
+
 #### What is exception handling?
+    Exceptions are use to handle possible errors occurring during the program execution. Exceptions can anticipate the error type (it it is given) and when the error occurs it will execute the coded lines inside the exceptions instead of crashing the program.
+
 #### What are the basics of exception handling in Python?
+    We use try-except block.
+    It the try block runs to failure, it jumps to the except block rather than crasing. The except block contains the logic that deals with the exception gracefully.
+
 #### In which case should we catch an exception? Why?
+    Any time a specific error can be excepted it is wise to use exceptions. For example: when user input is used and the input type is important or when we are liking for files which my not exist or when we need to translate object but it is not clear if it can be done.
+
 #### What can/should we do with an exception in the ‘except’ block?
+    Print and understandable error massage (such as ValueError). and tell the program how to continue executing our code (or not)
+
 #### What does the else and finally statement do in a try-except block in Python?
+    Else is called when nothing went wrong and the except block doesn't catch an exception.
+    Finally block: code is always executed, whether the program executer properly or it raised an exception.
+
 
 ## Software Development Methodologies
 
+
 #### What is the main goal of a retrospective meeting?
+    The goal is to discuss among the team members how the work went during the last spring, what was good, what was bad, and what steps each member can take to improve the personal and team work.
+
 
 ## Programming environment
 
+
 ### Unix
 
+
 #### What is UNIX and what is Linux?
+    UNIX is a family of multitasking multiuse computer operating system from the 70's that meant to be easier to handle for programmers than conventional operating system. It has a modular design and command line interface (CLI)
+
+    LINUX is a family of open source Unix-like operating system based on the Linux kernel.
+    Linux is free (open source) and currently maintained and updated by the Linux community, but UNIX is licensed. Unix-like systems are very similar to UNIX, even though they are not certified to be UNIX system.
+    Linux also has a GUI (Graphical User Interface)
+
 #### What do we call the shell in Linux?
+    A Shell is a command interpreter in Linux used mainly in the Linux Terminal. It provides a computer user an interface to the UNIX/GNU Linus system so that the user can run different command or utilities/tools with some input data (then executed by the operating system)
+
 #### What does root means in a Linux environment?
+    Root either means Root Directory, or in the case of privileges, it means administrator, or complete privilege with access to all commands in the OS.
+
 #### How do you access your personal files in Linux?
+    True the file browser of by the treminal with the "cd" command
+
 #### How can you install an application in Linux?
+    You can use the software center or you can use commands in the terminal as well:
+    sudo apt-get install <application name>
+    brew install <application name> (macOS)
 #### What is package management in Linux, what are repositories?
+    Package management keeps track of the users' software packages. It tells the user whenever there's a new version of an installed software is available.
+    The repository storage location where new softwares get installed and existing softwares get updated.
+
 #### How do you navigate in the filesystem with the command line?
+    pwd: Print workind directory
+    ls: List items
+    cd: Change direstory
+
 #### What does the following commands do: mkdir, rm, cat, cp, touch?
+    mkdir: Create new folder (directory)
+    rm: Remove file or folder (directory)
+    cat: Concatenate files and print to standard output
+    cp: Copy file or folder (directory)
+    touch: Create new file
+
 #### How can you look up what does a command do in Linux if you have no internet connection?
+    man <command name>
+    <command name> --help
+
 #### What does the following commands do: head, tail, more, less?
+    head: Print the first 10 lines to standard output
+    tail: Print the last 10 lines to standard output
+    more: View one screenful of text at a time
+    less: similat to more, but faster and you can navigate through the file. Better for large files
+
 #### How do you download a file from internet using the terminal?
+    wget <URL>
