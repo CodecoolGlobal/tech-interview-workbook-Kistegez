@@ -208,24 +208,60 @@
 #### What does unpacking mean in Python?
     Unpacking is a way where arguments can be given to a function from a list/set/dictionary. Unpacking is done by the * or the ** operator.
 #### What happens when you try to assign the result of a function which has no return statement to a variable in Python?
+    The value will be None and that will be assigned to the variable and its type will become NoneType.
+
 
 ## Software engineering
 
+
 ### Debugging
 
+
 #### What techniques can you use while debugging a program in Python?
+    Use the built in debugger from the IDE. Read between the code and try to figure out the proglem.
+    or
+    Print out the variables and check where it goes wrong.
+
 #### What does step over, step into and step out mean while using the debugger?
+    Step over: steps over the next line or loop in the code (skip a certain function)
+    Step into: steps into definitions or loops and checks the functions line by line
+    Step out: does the opposite that step into.
+
 #### How can you start to debug a program from a certain line using the debugger?
+    Place a break points in the IDE at the line where you want to start debugging at. The breakponts where the the built in debugger tool stop the running code.
 
 ### Version control
 
 #### What are the advantages of using a version control system?
+    You can record and follow every change throughout the project.
+    Multiply people can work on the same code at the same time.
+    If comething goes wrong, you can always go back to a previous version.
+
 #### What is the difference between the working directory, the staging area and the repository in git?
+    Working directory: The current, active directory that you modify on you computer.
+    Staging area: contains the files that are added from the working directory.
+    (Local git) repositry: storage of commited changes, which can be restored or merged later if needed (and than pushed to github)
+
 #### What are remote repositories in git?
+    These are online storages of the git, repositories that are not on the computer you are working on.
+    It can be used to share code with colleagues by git push/pull command and to manage multiple branches and merges between the versions.
+
 #### Why does a merge conflict occur?
+    A conflict arises when two separate branches have made edits to the same line in a file or when a file has been deleted in one branch but edited in the other.
+
 #### Through what series of commands could you put a new file into a remote repository connected to your existing local repository?
+    git clone or init .... --> cloning a repository
+    touch filename --> creating a new file
+    git add filename or . --> add file to staging
+    git commit -m "commit massage" --> creat a commit with an appropritate massage and add it to the local repository
+    git push --> push the canges/commits to the remote repository
+
 #### What does it mean atomic commits and descriptive commit messages?
+    Atomic commits: When you commit every logical block that you wrote
+    Descriptive commit massage: when the commit massages are meaningful, concrise and easy to read.
+
 #### What’s the difference between git and GitHub?
+    Git is a distributed version control tool that can manage a development project's source code history, while GitHub is a cloud bades platform built around the Git tool. It is a website for monitoring git projects, commits, and branches.
 
 ## Software design
 
