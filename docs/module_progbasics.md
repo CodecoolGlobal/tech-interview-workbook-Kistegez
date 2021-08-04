@@ -181,7 +181,7 @@
     list[start:end:step] --> ceartes a new list from the elements between start and end (the end index is not included)
 
 #### What arithmetic operators (+,*,-,/) can be used on lists in Python? What do they do?
-    + adds to the value of the variable in the list elemnt or joins two lists together or adds a string into a list character by character or by itself
+    + adds to the value of the variable in the list element or joins two lists together or adds a string into a list character by character or by itself
     * multiplies the value in the list element or multiplies the number of list elements themselvers or multiplies the ammount of list elements
     - substracts from the list elements value
     / divides the list elements value
@@ -193,11 +193,12 @@
 #### What does the + operator mean when used with strings in Python?
     It is used to add characters or other strings at the end of strings or to join mutliple string together
 #### Explain f strings in Python?
-    f strings are strings that contain the value of a variable in themself and thus making them dynamic
+    f strings are strings that contain the value of a variable in themself and this making them dynamic
     f'string {variable} string'
 
 #### Name 4 iterable types in Python!
     String, list, tuple, dictionary
+
 #### What is the difference between list/set/dictionary comprehension and a generator expression in Python?
     List/set/dictionary comprehensions create the entire collection at once, while generators can evaluate elements on demand.
     List/set/dictionary can be reffered to by themselves. Generator expressions can only be reffered to in loops. Generator functions contain one or more yield statements instead of a return statement.
@@ -207,6 +208,7 @@
 
 #### What does unpacking mean in Python?
     Unpacking is a way where arguments can be given to a function from a list/set/dictionary. Unpacking is done by the * or the ** operator.
+
 #### What happens when you try to assign the result of a function which has no return statement to a variable in Python?
     The value will be None and that will be assigned to the variable and its type will become NoneType.
 
@@ -330,7 +332,7 @@
     Root either means Root Directory, or in the case of privileges, it means administrator, or complete privilege with access to all commands in the OS.
 
 #### How do you access your personal files in Linux?
-    True the file browser of by the treminal with the "cd" command
+    Through the file browser of by the treminal with the "cd" command
 
 #### How can you install an application in Linux?
     You can use the software center or you can use commands in the terminal as well:
