@@ -5,80 +5,110 @@
 ### Clean code
 
 #### Point out 5 suggestions, how to format an SQL query!
-    # Naming object: Avoid naming in plural, also using capital letters,
+
+    - Naming object: Avoid naming in plural, also using capital letters,
         and if it is more than one word use underscore (or CamelCase)
-    # Alignment: recommend to writing the first keywords on a new line to the left
+    - Alignment: recommened to writing the first keywords on a new line to the left
         and then the rest of the code to the right.
-        If there is many word after select is is better to separete them by placing each on a separate line.
-    # Keep capitalization consistent: If you do a query capitalized then keep that rule to the otehres
-    # Protect your SQL from injection: to insert variables do not use 'f' string. Use sql.SQL() or execute(,dict) instead.
-    # Use statements, operators, variables properly
-    # Commas are at the end of the line
+        If there is many word after select, it is is better to separete them by placing each on a separate line.
+    - Keep capitalization consistent: If you do a query capitalized then keep that rule to the otehres
+    - Protect your SQL from injection: to insert variables do not use 'f' string. Use sql.SQL() or execute(,dict) instead.
+    - Use statements, operators, variables properly
+    - Commas are at the end of the line
 
 #### What layers can you name in a simple web application?
-    # Presentation layer
-    # Data service layer
-    # Business logic layer
-    # Data access alyer
 
+    - Presentation layer ("frontend". display UI, goal: input, request send to service)
+    - Data service layer ("controller". It is between Business logic layer and Presentation)
+    - Business logic layer ("Service". Main logic)
+    - Data access layer ("DAO". It access data from database)
 
 ### Error handling
 
 #### What error can occur, when an array does not have an element on the requested index?
-    # An IndexError
+
+    An IndexError
 
 #### What is the “finally” block, and how would you use it?
-    # It is inside a try block and it is executed even if an unexpected exception (catch) occurs.
-        It is useful because it allows the programmer to avoid having cleanup code accidentally bypassed.
+
+    It is inside a try block and it is executed even if an unexpected exception (catch) occurs.
+    It is useful because it allows the programmer to avoid having cleanup code accidentally bypassed.
 
 #### Why should we catch special exception types?
-    # In that way we can see exactly what went wrong.
-
+    
+    In that way we can see exactly what went wrong.
 
 ### Security
 
 #### What is SQL injection? How to protect an application against it?
-    # When an user doesn't use the input fields properly and writes SQL commands instead which can break our database or steal sensitive.
-        A code can be protected by writing sql queries in secure way. Each framework has their orwn solution for that problem.
+
+    When an user doesn't use the INPUT FIELDS properly and writes SQL commands instead, which can break our database or steal sensitive data.
+    A code can be protected by writing sql queries in secure way. Each framework has their own solution for that problem.
 
 #### What is XSS? How to protect an application against it?
-    # Cross-site Scripting (XSS) is a client-side code injection attack.
-        The attacker aims to execute malicious scripts in a web browser of the victim by including malicious code in a legitimate web page or web application.
-        Commonly used for Cross-site Scripting attacks are forums, message boards, and web pages that allow comments.
-        To protect against stored XSS attacks, make sure any dynamic content coming from the data store cannot be used to inject JavaScript on a page.
-        Whitelist Values HTTP-only Cookies : meaning that cookies will be received, stored, and sent by the browser,
-        but cannot be modified or read by JavaScript. Disallow the characters – especially < and > characters – from being rendered.
+        
+    Cross-site Scripting (XSS) is a client-side (JavaScript) code injection attack.
+    The attacker aims to execute malicious scripts in a web browser (of the victim).
+    Commonly used for attacks: forums, message boards, comments.
+    To protect against stored XSS attacks:
+    - DOMPurify
+    - make sure any dynamic content coming from the data store cannot be used to inject JavaScript on a page.
+    - Whitelist Values HTTP-only Cookies : meaning that cookies will be received, stored, and sent by the browser, but cannot be modified or read by JavaScript.
+    - Disallow characters – especially < and > characters – from being rendered.
 
 #### How to properly store passwords?
-    # You have to hash them (salting them is also recommended) and then store the outcome in a database.
+
+    You have to hash them (salting them is also recommended) and then store the outcome in a database.
 
 #### What is HTTPS?
-    # HyperText Transfer Protocol Secure (HTTPS) is an extension of the Hypertext Transfer Protocol (HTTP).
-        It is used for secure communication over a computer network, and is widely used on the Internet.
-        It protects against man-in-the-middle attacks.
+
+    HyperText Transfer Protocol Secure (HTTPS) is an extension of the Hypertext Transfer Protocol (HTTP).
+    It is used for SECURE COMMUNICATION OVER COMPUTER NETWORK, and is widely used on the Internet.
+    It protects against man-in-the-middle attacks!!
 
 #### What is encryption and decryption?
-    # Encryption: The process of translating plain text data (plaintext) into something that appears to be random and meaningless (ciphertext).
-        Decryption: The process of converting ciphertext back to plaintext.
+
+    HTTPS does that.
+    - Encryption: The process of translating plain text data (plaintext) into something that appears to be random and meaningless (ciphertext).
+    - Decryption: The process of converting ciphertext back to plaintext.
 
 #### What is hashing?
-    # A hash function is where a computer takes an input of any length and content (e.g. letters, numbers, and symbols) and
-        uses a mathematical formula to chop it, mix it up, and produce an output of a specific length.
+    
+    A hash function is where a computer takes an input of any length and content (e.g. letters, numbers, and symbols) and
+    uses a mathematical formula to chop it, mix it up, and produce an output of a specific length.
     
 #### What is the difference between encryption and hashing? When would you use which?
-    # The key difference between encryption and hashing is that encrypted strings can be reversed back into their original decrypted form if you have the right key.
-        Hashing: Ideal way to store passwords, as hashes are inherently one-way in their nature.(+ salt)
-        Encryption: Ideal for sending secure messages.
+    
+    The key difference between encryption and hashing is that encrypted strings can be reversed back into their original decrypted form if you have the right key.
+    - Hashing: Ideal way to store passwords, as hashes are inherently one-way in their nature.(+ salt)
+    - Encryption: Ideal for sending secure messages.
 
 #### What encryption methods do you know?
-    # RSA: Considered an asymmetric algorithm due to its use of a pair of keys. You’ve got your public key,
-        which is what we use to encrypt our message, and a private key to decrypt it.
+
+    Symetric encryption: uses one key and it is shared with everyone who use it. FASTER BUT LESS SECURE
+    Asymetric encrytion: public key is shared with everyone for encryption and public key is owned who has to decrypt it. MOST SECURE
+    
+    AES (Advanced Encryption Standard): It is symetric encryption algorithm that encrypts fixed blocks of data (of 128 bits) at a time.
+    The keys used to decipher the text can be 128-, 192-, or 256-bit long. The 256-bit key encrypts the data in 14 rounds, the 192-bit key in 12 rounds, and the 128-bit key in 10 rounds.
+
+    RSA (Rivest-Shamir-Adleman): It is an asymmetric encryption algorithm that is based on the factorization of the product of two large prime numbers.
+    Only someone with the knowledge of these numbers will be able to decode the message successfully.
+
+    Triple DES (Data Encryption Standard): It is a symmetric encryption and an advanced form of the DES method that encrypts blocks of data using a 56-bit key.
+    Triple DES applies the DES cipher algorithm three times to each data block.
+
+    Twofish: It is a license-free encryption method that ciphers data blocks of 128 bits. Twofish always encrypts data in 16 rounds regardless of the key size.
+
     
 #### What hashing methods do you know?
-    # MD5 (already broken, easy to manipulate), SHA-2(Secure Hash Algorithm)
+
+    MD5 (already broken, easy to manipulate): An MD5 hash function encodes a string of information and encodes it into a 128-bit fingerprint.
+    SHA-2(Secure Hash Algorithm): The SHA-2 family consists of six hash functions with digests (hash values) that are 224, 256, 384 or 512 bits.
+    CRC32: Encoding the same data string using CRC32 will always result in the same hash output.
 
 #### How/where would you store sensitive data (like db password, API key, ...) of your application?
-    # Hiden from publicity. Using hashing or encryption, to further make it harder to obtain.
+
+    Hiden from publicity. Using hashing or encryption, to further make it harder to obtain.
 
 
 ## Computer science
@@ -87,118 +117,143 @@
 ### Algorithms
 
 #### What is the difference between Stack and Queue data structure?
-    # Stacks are LIFO (Last In First Out) types, which means the last inserted element
+
+    Stacks are LIFO (Last In First Out) types, which means the last inserted element
         is the first element to come out of the list. Insert operation called push and Delete is called pop.
         In stacks we maintain only one pointer to access the list, called the top (last) element.
-    # Queues are FIFO (Fist in First out) types, which means the first iserted element
+
+    Queues are FIFO (Fist in First out) types, which means the first iserted element
         is the first element to come out of the list. Insert operation is called enqueue and Delete is called dequeue.
         In queues we maintain two pointer to access the list (first/last position).
+
 #### What is BubbleSort? Describe the main logic of this sorting algorithm.
-    # BubbleSort is a sorting method. Starting from the first element, comparing it with the next.
-        If the next element higher then the previous move to the next. Else swap them. And so on till the last index.
+
+    BubbleSort is a sorting method. Starting from the first element, comparing it with the next.
+    If the next element higher then the previous move to the next. Else swap them. And so on till the last index.
 
 #### Explain the process of finding the maximum and minimum value in a list of numbers!
-    # Moving along the collection (iterate). Set the first as highest/lowest.
-        Then comparing each next element with the firts and replace it with the first accordingly.
+
+    Moving along the collection (iterate). Set the first as highest/lowest.
+    Then comparing each next element with the firts and replace it with the first accordingly.
 
 #### Explain the process of calculating the average value in an array of numbers!
-    # Adding each element value together and dividing it with the the total element count.
+
+    Adding each element value together and dividing it with the the total element count.
 
 #### What is Big O complexity? Explain time and space complexity!
-    # Big O Notation is to describe the complexity of an algorithm. How long an algorithm takes to run.
-        It is to compare the efficiency of different approaches to a problem. How quickly the runtime grows:
-        use Big O Notation to talk about how quickly the runtime grows. Relative to the input:
-        With Big O Notation, we use the size of the input, which we call “n”.
-        So we can say things like the runtime grows “on the order of the size of the - input” (O(n)) or “on the order of the square of the size of the input” (O(n²)).
-        As the input gets larger: we care more about the stuff that grows fastest as the input grows, because everything else is quickly eclipsed as n gets very large.
+
+    Big O Notation is to describe the complexity of an algorithm. How long an algorithm takes to run.
+    It is to compare the efficiency of different approaches to a problem. How quickly the runtime grows:
+    use Big O Notation to talk about how quickly the runtime grows. Relative to the input:
+    With Big O Notation, we use the size of the input, which we call “n”.
+    So we can say things like the runtime grows “on the order of the size of the - input” (O(n)) or “on the order of the square of the size of the input” (O(n²)).
+    As the input gets larger: we care more about the stuff that grows fastest as the input grows, because everything else is quickly eclipsed as n gets very large.
 
 #### Explain the process of calculating the average value in a list of numbers!
-    # Sum all of the data values and divide by the number of nodes in the list.
+
+    Sum all of the data values and divide by the number of nodes in the list.
 
 
 ### Procedural
 
 #### How the CASE condition works in SQL?
-    # It is a controlling structure (like the if in other programming language).
-        The Case statement goes through conditions and returns a value when the first condition its met.
-        So once a condition is true, it will stop reading and return the result. If no coditions are true it returns the value in the else clause.
+
+    It is a controlling structure (like the if in other programming language).
+    The Case statement goes through conditions and returns a value when the first condition its met.
+    So once a condition is true, it will stop reading and return the result. If no coditions are true it returns the value in the else clause.
+
 #### How the switch-case condition works in JavaScript?
-    # The switch statement is used to perform different actions based on different conditions.
-        Use the switch stetement to select one of many code block to be executed. Instead of else we must use default.
+
+    The switch statement is used to perform different actions based on different conditions.
+    Use the switch stetement to select one of many code block to be executed. Instead of else we must use default.
 
 #### How to achieve a switch-case-like structure in Python?
-    # The way in Python to implement switch statement is to use the powerful dictionar mapping, also known as associative arrays,
-        the provide simple one to one key-value mappings.
+
+    The way in Python to implement switch statement is to use the powerful dictionar mapping, also known as associative arrays,
+    the provide simple one to one key-value mappings.
 
 #### Explain variable scoping in Python!
-    # LEGB rule -- L: local - Names assigned in any way within a function (def or lambda), and not declared global in that function.
+
+    LEGB rule!!
+        L: local - Names assigned in any way within a function (def or lambda), and not declared global in that function.
         E: enclosing-function locals - Name in the local scope of any and all statically enclosing functions (def or lambda), from inner to outer.
         G: global (module) - Names assigned at the top-level of a module file, or by executing global statement in a def within the file.
         B: built-in (python) - names preassigned in the built-in name module for ex.: open, range, SyntaxError
 
 #### What’s the difference between const and var in JavaScript?
-    # The const keyword created a declaration that cannot be reassigned. With var/let you can reassign and var/let is global scoped.
+
+    The const keyword created a declaration that cannot be reassigned. With var/let you can reassign and var/let is global scoped.
 
 #### How the list comprehension looks like in Python?
-    # you can either use loops: spuares = [] for in range (5) square.append(x*2) - squares = [2,4,6,8,10]
-    # you can either use list comprehensions to get the same result: squares = [x*2 for i in range (5)] - squares = [2,4,6,8,10]
+
+    you can either use loops: spuares = [] for i in range (5) square.append(i*2) - squares = [2,4,6,8,10]
+    you can either use list comprehensions to get the same result: squares = [i*2 for i in range (5)] - squares = [2,4,6,8,10]
 
 #### How the “ternary expression” looks like in Python?
-    #  a = val_if_true if teset else val_if_false in action:
-        d= {'a':'x','b':'y','c':'x'}
-        def has_unique_value(k):
-        return d.values().count(d[k] == 1 def keys_with_same_value_as_key(k):
-        return set([key for key in d.keys() if d[key] == d[k]))
-        print( {d[k]:k if has_unique_value(k) else keys_with_same_value_as_key(k) for k in d.keys()})
+
+    result = if_true if condition else if_false
 
 #### How the ternary expression looks like in JavaScript?
-    # if (person.age >= 16)
-        {person.driver = 'yes';}
-        else { prerson.friver = 'no'}
-    with tenary expressiong: preson.driver = person.age >= 16? 'yes':'no'
+
+    condition ? exprIfTrue : exprIfFalse
 
 #### How to import a function from another module in Python?
-    # from a import b, c
+
+    from a import b, c
 
 #### How to import a function from another module in JavaScript?
-    # import {init} from "../main.js" or
-    # import { htmlFactory, htmlTemplates } from "../view/htmlFactory.js";
+
+    import {init} from "../main.js" or
+    import { htmlFactory, htmlTemplates } from "../view/htmlFactory.js";
 
 
 ### Functional
 
 #### What is recursion?
-    # Recursive in fuction: The function calls itself again at the end of the execution with values(s) what is/are defined by itself.
-        Can be other meanings too, e.g.: copying or deleting a folder in a recursive way will delete/copy the sub folders too.
+
+    The process in which a function calls itself directly or indirectly is called recursion and the corresponding function is called a recursive function.
 
 #### Write a recursive function which calculates the Fibonacci numbers!
-     # function fibonacci (limit, a=0, b=1) {if (b >= limit) {return} let c = a+b; console.log(c); return fibo(limit,b,c)
+
+     function fibo(limit, a=0, b=1) {
+        if (b >= limit) {
+            return
+        } 
+        let c = a+b; 
+        console.log(c); 
+        return fibo(limit,b,c)
 
 #### How to store a function in a variable in Python?
-    # def one():
+
+    def one():
         print("hello") 
     function_variable = one
-    print(function_variable)
+    function_variable()
 
 #### List the ways of defining a callable logical unit in JavaScript!
-    # arrow function const foo = (arg1, arg2) => {...};
-    # concie method syntay: let obj {myMethod(arg1, arg2) {...} }
+
+    arrow function: const foo = (arg1, arg2) => {...};
+    concie method syntax: let obj {myMethod(arg1, arg2) {...} }
 
 #### What is an event listener? How to attach one?
-    # it sets up a function that will be called whenever the specified event is delivered to the target.
-        documbent.getElementById("myBottun"9.addEventListener("click", displayDate)
+
+    it sets up a function that will be called whenever the specified event is delivered to the target.
+    documbent.getElementById("myBottun").addEventListener("click", displayDate)
 
 #### How to trigger an event in JavaScript?
-    # Event listeners have a target, which they listen for. It can be triggered by:
-        mouse actions, keyboard actions, contetnt load ( or changed) actions
+
+    Event listeners have a target, which they listen for. It can be triggered by:
+    mouse actions, keyboard actions, content load (or changed) actions.
 
 #### What is a callback function? Tell some examples of its usage.
-    # A callbach is function is to be executed after another function has finished executing - this is where it gets the name from.
-        More complexly put: In JavaSricpt, functions are objects and because of this, functions can take functions as arguments,
-        and can be returned by other functions.
+
+    A callbach is function is to be executed after another function has finished executing - this is where it gets the name from.
+    More complexly put: In JavaSricpt, functions are objects and because of this, functions can take functions as arguments,
+    and can be returned by other functions.
 
 #### What is a Python decorator? How does it work? Tell some examples of its usage.
-    # Decorator takes in a function, adds some functionality and returns it.
+
+    Decorator takes in a function, adds some functionality and returns it.
         def smart_divide(func):
             def inner(a,b):
              print("I am going to divide ",a,"and",b)
@@ -207,15 +262,17 @@
                 return func(a,b)
             return inner
         smart_devide def devide(a,b): return a/b
+
 #### What is the difference between synchronous and asynchronous execution?
-    # When you execute something synchronously, you wait for it to finish before moving on to another task.
-        when you execute something asynchronously, you can move on to another task before it finishes.
-        Synchronous execution means the execution happens in a single series: A -> B -> C -> D.
-        If you are calling those routines, A will run, then finish, then B will start, then fnish, then C will start etc.
-        With asynchronous execution, you begint routine, and let it run in the backgroun while you start next, then at some point,
-        say wait for this to finish. It's more like start A -> B -> C -> D -> wait for A to finish. The advantage is that you
-        can execute B, C and D while A is still running (in the background, on a separate thread),
-        so you can take better advantage of your resources and have fewe "hangs" or "waits".
+
+    When you execute something synchronously, you wait for it to finish before moving on to another task.
+    when you execute something asynchronously, you can move on to another task before it finishes.
+    Synchronous execution means the execution happens in a single series: A -> B -> C -> D.
+    If you are calling those routines, A will run, then finish, then B will start, then fnish, then C will start etc.
+    With asynchronous execution, you begint routine, and let it run in the backgroun while you start next, then at some point,
+    say wait for this to finish. It's more like start A -> B -> C -> D -> wait for A to finish. The advantage is that you
+    can execute B, C and D while A is still running (in the background, on a separate thread),
+    so you can take better advantage of your resources and have fewe "hangs" or "waits".
 
 
 ## Programming languages
