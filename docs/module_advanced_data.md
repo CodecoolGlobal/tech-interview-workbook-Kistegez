@@ -45,18 +45,18 @@
 
 ### Do the following statements return the same or different output? Why?
 
-```sql
-SELECT * FROM CHECKS;
-select * from checks;
-```
+    ```sql
+    SELECT * FROM CHECKS;
+    select * from checks;
+    ```
 
 ### The following queries do not work when entered into the command line psql console. Why not?
 
-```sql
-Select *
-Select * from checks
-Select amount name payee FROM checks;
-```
+    ```sql
+    Select *
+    Select * from checks
+    Select amount name payee FROM checks;
+    ```
 
     To use multiple SELECT statements in one query we need to use union and put the statements in parentheses.
 
@@ -126,11 +126,11 @@ Select amount name payee FROM checks;
 
 ### What type of join appears in the following SELECT statement?
 
-```sql
-select e.name, e.employee_id, ep.salary  
-from employee_tbl e, employee_pay_tbl ep  
-where e.employee_id = ep.employee_id;
-```
+    ```sql
+    select e.name, e.employee_id, ep.salary  
+    from employee_tbl e, employee_pay_tbl ep  
+    where e.employee_id = ep.employee_id;
+    ```
     Inner join
 
 ### In joining tables are you limited to one-column joins, or can you join on more than one column?
@@ -147,9 +147,9 @@ where e.employee_id = ep.employee_id;
 
 ### What would happen if you issued the following statement?
 
-```sql
-DELETE * FROM COLLECTION;
-```
+    ```sql
+    DELETE * FROM COLLECTION;
+    ```
 
 ### Can you remove columns with the ALTER TABLE statement?
 
@@ -157,7 +157,7 @@ DELETE * FROM COLLECTION;
 
 ### Is the DROP TABLE command functionally equivalent to the DELETE FROM <table_name> command?
 
-### What is the difference between the functionality of the DELETE FROM <table_name> and the TRUNCATE TABLE command?
+### What is the difference between the functionality of the DELETE FROM <table_name> and the TRUNCATE TABLE command?
 
 ### When a table is created, who is the owner?
 

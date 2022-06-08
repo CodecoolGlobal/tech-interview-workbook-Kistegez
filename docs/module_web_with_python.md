@@ -639,68 +639,88 @@
         - optionally a message-body
 
 #### How does an HTTP Response look like? What are the most relevant HTTP header fields?
-    # A simple response from the server contains the following somponents: HTTP Status code (for ecample: HTTP/1.1 301 Moved Permanently,
-        means the requested resource was permanently moved and redirecting to some other resource.)
-        Headers (example - Condent-Type: html) an empty line. A message body which is optional.
+    
+    After receiving and interpreting a request message, a server responds with an HTTP response message. Which icludes:
+        - a status-line: Status-Line = HTTP-Version SP Status-Code SP Reason-Phrase CRLF
+            The elements are separated by space SP characters. HTTP-Version = HTTP/1.1, Status-Code = 200/300/400/500
+        - Header  fields:
+            Date, Server, Last-Modified, Content-Length, Contetn-Type, Connection
+        - an empty line
+        - optionally a message-body
 
 #### What is DNS? How does it work?
-    # Domain Name Servers (DNS) are the Internet's equivalent of a phone book. They meintain a directory of domain names
-        and translate then to Internet Protocol (IP) adresses.
+
+    Domain Name Servers (DNS) are the Internet's equivalent of a phone book. They meintain a directory of domain names
+    and translate then to Internet Protocol (IP) adresses.
+    
+    When I search for a website my computer will check wit my internet provider DNS server, about what is the matching with that search,
+    If It wasn't success my ISP that It will check further until there will be a match with my search and translate it into IP adress for
+    for the communication of the computers.
 
 #### What is a web server?
-    # A web server is a program that uses HTTP to serve the files that form Web pages to users, in response to their requests, which are
-        forwarded by their computers' HTTP clients. Dedicated computer and appliances may be referred to as Web servers as well.
 
+    A web server is software and hardware that uses HTTP and other protocols to respond to client requests made over the World Wide Web.
+    The main job of a web server is to display website contetnt through strong, processing and delivering webpages to users.
+   
 #### Explain the client-server architecture.
-    # It is an architecture os a computer network in which many clients (remote processors) request and recive service from a centralized sever (host computer)
-        Client computers provide an interface to allow computer user to request service of the server and to diplay the results the server returns.
+
+    It is an architecture of a computer network in which many clients (remote processors) request and recive service from a centralized sever (host computer)
+    Client computers provide an interface to allow computer user to request service of the server and to diplay the results the server returns.
 
 #### What would you use a session for?
-    # The purpose for session is to store that you (as the web application developer) would like to have preserved across page loads.
-        On this, you can set glags in your login script such as logged_in, to check if the user is logged in, and on any other page
-        check seccion['logged_in'] == true, insted of querying for that information. Session use a cokie as a key of sorts,
-        to associate with the data that is stored on the server side. Session variables will be expires when users close the browser.
-        
+
+    The purpose for session is to store that you (as the web application developer) would like to have preserved across page loads.
+    On this, you can set glags in your login script such as logged_in, to check if the user is logged in, and on any other page
+    check_session['logged_in'] == true, insted of querying for that information. Session use a cokie as a key of sorts,
+    to associate with the data that is stored on the server side. Session variables will be expires when users close the browser.
 
 #### What would you use a cookie for?
-    # You can save setting to cookie for the websites between visits, so its going to remember your previous preferences.
-        Cookies soterd on web-borwser (client-sie) not very safe, since the hackers can reach and get your information.
-    Expiration can be set (see setcookies() for more information)
 
+    You can save setting to cookie for the websites between visits, so its going to remember your previous preferences.
+    Cookies soterd on web-borwser (client-side) not very safe, since the hackers can reach and get your information.
+    Expiration can be set (see setcookies() for more information)
 
 ## Software Development Methodologies
 
 
 #### What kind of software development methodologies do you know? What are the main features of these?
-    # Waterfall development methodology: Requirements -> Desing -> Implementation -> Verification -> Maintanance.
+
+    - Waterfall development methodology: Requirements -> Desing -> Implementation -> Verification -> Maintanance.
         It's a rigid linear model that consists of sequential phases (requirements, design, implementation, verification, maintence)
         in which distict goals are accomplished. Each phase must be 100% complete before the next phase can start,
         and traditionally there is no process for going back to modify the project or direction.
-    # Agile: Adaptive approach which is able to respond to the changing requirements of the cliendts. Direct communication and feedback from customer.
+        On the other hand this metholodogy is faster than the Agile.
+
+    - Agile: Adaptive approach which is able to respond to the changing requirements of the cliendts. Direct communication and feedback from customer.
         Agile development methodology: Requirement/Feature/User stories/Product Backlog -> Scrum team (with lead) -> Sprint ->
         Planning -> Spring 1-4 weeks duration -> Production deployment ->
         Done Checklist (While this process other people making the design, build it, inegrate, test the software) -> Sprint Retrospective ->
         Product review (costumer input) -> Potential Product Increment.
 
 #### What are the SCRUM roles?
-    # One of the most important things for the success of SCRUM is the role of the Product Owner, show serves as an interface between
-        the team and other involved parties (stakeholders). The Scrum Master does not interfere into the decisions of the team regarding
-        specifically the development, bur rather is there for the team as an advisor. he only interferes actively when anybody of the team or
-        any other participant of a project (stakeholder) does not obey the rules of SCRU. The development Team in SCRUM a team is not just
-        the executive organ that receives its task from the project leader, it rather decides self dependent, which requirement or Users Stories
-        it can accomplish in on spring.
+
+    One of the most important things for the success of SCRUM is the role of the Product Owner, show serves as an interface between
+    the team and other involved parties (stakeholders). The Scrum Master does not interfere into the decisions of the team regarding
+    specifically the development, but reather is there for the team as an advisor. He only interferes actively when anybody of the team or
+    any other participant of a project (stakeholder) does not obey the rules of SCRUM. The development Team in SCRUM a team is not just
+    the executive organ that receives its task from the project leader, it reather decides self dependent, which requirement or Users Stories
+    it can accomplish in on spring.
 
 #### What are the SCRUM ceremonies?
-    # Ceremonies Sprint, Planning Sprint, Review Sprint, Retrospectitive Daily SCRUM
+
+    Ceremonies: Sprint, Planning Sprint, Review Sprint, Retrospectitive Daily SCRUM
 
 #### What are the SCRUM artifacts?
-    # Artifacts: Incerment, Product backlog, Sprint backlog
+
+    Artifacts: Incerment, Product backlog, Sprint backlog
 
 #### What is the main goal of a retrospective meeting?
-    # This is where the Scrum Team meets to reflect on their previous Spring and to figure out how to improve as a team by asking:
-        What went well? - What did not go well? - What can be improved?.
-        It allows the team to focus on its overall performance and identify strategies for continuous improvement.
 
-#### Explain, when would you recommend to use the waterfall methodology?
-    # Use waterfall when the project is simple or the project is complicated, but you have the expertise to deliver it. It is all you know and you have no support for change.
-        The upfont invesment is not risky to make, you focus your performance measures on delivery date and budget.
+    This is where the Scrum Team meets to reflect on their previous Sprint and to figure out how to improve as a team by asking:
+    What went well? - What did not go well? - What can be improved?.
+    It allows the team to focus on its overall performance and identify strategies for continuous improvement.
+
+#### Explain, when would you recommend using the waterfall methodology?
+
+    Use waterfall when the project is simple or the project is complicated, but you have the expertise to deliver it. It is all you know and you have no support for change.
+    The upfont invesment is not risky to make, you focus your performance measures on delivery date and budget.
