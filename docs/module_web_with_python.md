@@ -158,7 +158,7 @@
 
 #### How the CASE condition works in SQL?
 
-    It is a controlling structure (like the if in other programming language).
+    It is a controlling structure (like the "if" in other programming language).
     The Case statement goes through conditions and returns a value when the first condition its met.
     So once a condition is true, it will stop reading and return the result. If no coditions are true it returns the value in the else clause.
 
@@ -186,8 +186,8 @@
 
 #### How the list comprehension looks like in Python?
 
-    you can either use loops: spuares = [] for i in range (5) square.append(i*2) - squares = [2,4,6,8,10]
-    you can either use list comprehensions to get the same result: squares = [i*2 for i in range (5)] - squares = [2,4,6,8,10]
+    you can either use loops: spuares = [] for i in range (5) square.append(i*2) -> squares = [2,4,6,8,10]
+    you can either use list comprehensions to get the same result: squares = [i*2 for i in range (5)] -> squares = [2,4,6,8,10]
 
 #### How the “ternary expression” looks like in Python?
 
@@ -247,7 +247,7 @@
 
 #### What is a callback function? Tell some examples of its usage.
 
-    A callbach is function is to be executed after another function has finished executing - this is where it gets the name from.
+    A callbach is function that will be executed after another function has finished executing - this is where it gets the name from.
     More complexly put: In JavaSricpt, functions are objects and because of this, functions can take functions as arguments,
     and can be returned by other functions.
 
@@ -281,187 +281,236 @@
 ### SQL
 
 #### How can you connect your application to a database server? What are the possible ways?
-    # Need a connection string and a connection object from the database provider to set a session with the database server.
+
+    - Need a connection string and a connection object from the database provider to set a session with the database server.
         For Python we can use the psycopg2 module api's to connect an application with psql database.
-    # Everything on one server: The entire environment resides on a single server. For a typical web application, that would
+    - Everything on one server: The entire environment resides on a single server. For a typical web application, that would
         include the web server, application server, and database server.
-    # Separate Database Server: The database manager system (DBMS) can be separated from the rest of the environment
+    - Separate Database Server: The database manager system (DBMS) can be separated from the rest of the environment
         to eliminate the resource contention between the application and the database, and to increase security.
 
 #### When do you use the DISTINCT keyword in SQL?
-    # DISTINCT clause is used in the SELECT statement to remove duplicate rows from a result set.
+
+    DISTINCT clause is used in the SELECT statement to remove duplicate rows from a result set.
 
 #### Talk about the behavior/goal of these base SQL clauses: WHERE, GROUP BY, HAVING, ORDER BY?
-    # WHERE: It'equal to if in programming languages. it's used to "filter" the data based on conditions.
-    # GROUP BY: the statemant groups rows that gave the same values into summary rows. It is often used with aggregate functions
+
+    WHERE: It'equal to if in programming languages. it's used to "filter" the data based on conditions.
+    GROUP BY: the statemant groups rows that gave the same values into summary rows. It is often used with aggregate functions
         (COUNT, MAX, MIN, SUM, AVG) to group the result-set by one or more columns.
-    # HAVING: It is the same as WHERE. It's needed, as WHERE can not be used in aggregatin functions.
-    # ORDER BY: It is used to sort the result-set in ascending or descending order.
+    HAVING: It is the same as WHERE. It's needed, as WHERE can not be used in aggregatin functions.
+    ORDER BY: It is used to sort the result-set in ascending or descending order.
 
 #### What are aggregate functions in SQL? Give 3 examples.
-    # COUNT: return the number of rows that maches a specifies criterion.
-    # MAX: returns the highest value of the selecter column.
-    # MIN: return the smallest values of the selecter column.
-    # SUM: returns the total sum of a numberic column.
-    # AVG: returns the average values of a numeric column.
+
+    COUNT: return the number of rows that maches a specifies criterion.
+    MAX: returns the highest value of the selecter column.
+    MIN: return the smallest values of the selecter column.
+    SUM: returns the total sum of a numberic column.
+    AVG: returns the average values of a numeric column.
 
 #### What kind of JOIN types do you know in SQL? Could you give examples?
-    # INNER JOIN: returnc records at the intersection of two tables.
+
+    INNER JOIN: returnc records at the intersection of two tables.
         SELECT first_name, last_name, order_date, oreder_amount
         FROM customers AS c.
         INNER JOIN oreder AS o. ON c.customer_id = o.customer_id
-    # LEFT JOIN: returns all records from table A and any matching records from table B)
+    LEFT JOIN: returns all records from table A and any matching records from table B)
         SELECT first_name, last_name, order_date, oreder_amount
         FROM customers AS c.
         LEFT JOIN oreder AS o. ON c.customer_id = o.customer_id
-    # RIGTH JOIN: It is a morror version of the left join and allows to get list of all orders, appened with customer information.
-    # FULL OUTER JOIN: a list of all recods from both tables , we can use a full join.
+    RIGTH JOIN: It is a mirror version of the left join and allows to get list of all orders, appened with customer information.
+    FULL OUTER JOIN: a list of all recods from both tables , we can use a full join.
 
 #### What are the constraints in sql?
-    # NOT NULL - ensures that a column cannot have a NULL values
-    # UNIQUE - ensures that all values in a column are different.
-    # PRIMARY KEY - a combination of a NOT NULL and UNIQUE. Uniquely indentifies each row in a table.
-    # FOREIGN KEY - unequely identifies a row/record in another table.
+
+    NOT NULL - ensures that a column cannot have a NULL values
+    UNIQUE - ensures that all values in a column are different.
+    PRIMARY KEY - a combination of a NOT NULL and UNIQUE. Uniquely indentifies each row in a table.
+    FOREIGN KEY - unequely identifies a row/record in another table.
 
 #### What is a cursor in SQL? Why would you use one?
-    # A cursor is a temporary work area created in the system memory when a SQL statement is executed.
-        A curesor contains information on a select statement and the rows of data accessed by it.
-        This temporary work area is use to store the data retrieved from the database, and manipulate this data.
-        A cursors van hold more then one row, but can process only one row at a time. The set of rows the cursor holds is called the active set.
+
+    A CURSOR IS A TEMPORARY WORK ARE CREATED IN THE SYSTEM MEMORY WHEN A SQL STATEMENT IS EXECUTED.
+    THIS TEMPORARY WORK AREA IS USE TO STORE THE DATA RETRIEVED FROM THE DATABASE, AND MANIPULAT THIS DATA.
+
+    A cursor contains information on a select statement and the rows of data accessed by it.    
+    A cursors can hold more then one row, but can process only one row at a time. The set of rows the cursor holds is called the active set.
 
 #### What are database indexes? When to use?
-    # A database index is a data structure that improves the speed of data retrieval operations on a database table at the cost of addtitional writes
-        and storage space to maintain te index data structure. Indexes are used to quickly laocate data without having to serarch every row
-        in a databas table.
+
+    A database index is a data structure that improves the speed of data retrieval operations on a database table at the cost of addtitional writes
+    and storage space to maintain te index data structure. Indexes are used to quickly locate data without having to search every row
+    in a databas table.
 
 #### What are database transactions? When to use?
-    # a transaction is a unit of work that you want to treat as a whole. It has to either happen in a full or not at all.
-        A classical example is transferring money from one bank account to anouther. To do that you have first to withdraw tha amount from the source account,
-        and deposit it to destination account. The operation has to succeed in full. If you stop halfway, the mondey will be lost. In modern databases transactions
-        also do some other thigs - like nesure that you can't access data that another person has written halfway.
-        But the basic ides is tha same - transactions are there to ensure, that no matter what happens, the data you work with will be in a sesible state.
-        They guarantee that there will NOT be a situation where money is witdrawn from one account, but ot deposited to another.
 
+    DATABASE TRANSACTION IS AN INVISIBLE UNIT OF WORK. for exaple which I DELETE from one table I have to INSERT INTO another.
+    A TRANSACTION IS A UNIT OF WORK THAT YOU WANT TO TREAT AS A WHOLE. IT HAS TO EITHER HAPPEN IN A FULL OR NOT AT ALL.
+
+    A classical example is transferring money from one bank account to anouther. The operation has to succeed in full. If you stop halfway, the mondey will be lost.
+
+    ACID = Atomic (all run or not at all), Consistent (not leaving mess behind), Isolated (during the tansaction nothing else can make a change), Durable (change made persist)
+
+    How look like in SQL:
+    CREATE PROCEDURE ArchiveStudents(@Graduation INT)
+    AS
+    BEGIN TRY
+        BEGIN TRANSACTION
+                INSERT INTO StudentsArchive(StudentId, FristName, LastName, Graduation)
+                SELECT * 
+                FROM students 
+                WHERE Graduation < @Graduation
+
+                DELETE FROM Students
+                WHERE Graduation < @Graduation
+        COMMIT TRANSACTION
+    END TRY
+    BEGIN CATCH
+        ROLLBACK TRANSACTION
+    END CATCH
+    
 #### What kind of database relations do you know? How to define them?
-    # One-to-One: A ewo in a table A can have onle one matching row in talbe B, and the other way around as well.
-    # One-to-Many ( or Many-to-One): This is the most common relationship type. In this type of relationship, a row in a table
-        A can have many matching rows in table B, but a row in table B can only one matching row in table A (Each costumer can only be
-        assignes to one cty. One city can be assignes to many costumer).
-    # Many-to-Many: relationship could be thought of as two one-to-many relationships, linked to an intermediary table (cross-referene table).
+
+    One-to-One: A row in A table can have only one matching row in talbe B, and the other way around as well.
+    One-to-Many ( or Many-to-One): This is the most common relationship type. In this type of relationship, a row in A table can have many matching rows in table B,
+        but a row in table B can only one matching row in table A (Each costumer can only be assignes to one city. One city can be assignes to many costumer).
+    Many-to-Many: relationship could be thought of as two one-to-many relationships, linked to an intermediary table (cross-referene table).
         for example: in order to create a many-to-many realitonship between customers table and the product table, we create a new table called Oders
 
 #### You have a table with an “address” field which contains data like “3525, Miskolc, Régiposta 9.” (postcode, city, street name and address). How would you query all records related to Miskolc?
-    #   SELECT *
+
+        SELECT *
         FROM table
-        WHERE city = 'Mikolc';
+        WHERE adress LIKE '%Miskolc%';
 
 #### How would you keep track of what kind of data has changed after an UPDATE or DELETE operation in a table?
-    # I would create a person_log table and create a trigger on that will insert a row into person_log table whenever a table(s)
-        or row(s) get updated/deleted/added.
+
+    I would create a person_log table and create a trigger on that will insert a row into person_log table whenever a table(s)
+    or row(s) get updated/deleted/added.
 
 
 ### HTML & CSS
 
 #### What’s the difference between XML, XHTML and HTML?
-    # both are markup languages, which represents text data in proper format by using tags. However they are used for completely different purposes.
-    # Similarities between HTML and XML: both are languages of web and both are markup languages. Both are originated from
+
+    both are markup languages, which represents text data in proper format by using tags. However they are used for completely different purposes.
+    Similarities between HTML and XML: both are languages of web and both are markup languages. Both are originated from
         SGML (Standardized General Markup Language). Tags are basic building block of both. 
-    # Differences: tags are predefined tags where as XML tgs are user defined tags. HTML tags are limited number or tags
+    Differences: HTML FOCUSES ON HOW DATA LOOKS LIKE, WHERE AS XML FOCUESES ON WHAT THE DATA IS.
+        tags are predefined where as XML tags are user defined tags. HTML tags are limited number or tags
         where as XML tags are extensible. HTML tags are case insensitive where as XML tags are sensitive.
-        HTML tags are menat for displaying the data but nor for describing the data where as XML tags are meant for describint the data.
-        HTML focuses on how data looks where as XML focuses on what data is.
-    # XHTML (Extensible HyperText Markup Language) is almost identical to HTML. It is stricter then HTML.
+        HTML tags are menat for displaying the data but not for describing it, where as XML tags are meant for describint the data.
+    XHTML (Extensible HyperText Markup Language) is almost identical to HTML. It is stricter then HTML.
         It is HTML defined as an XML application.
 
 #### How to include a JavaScript file in a webpage?
-    # Using the script tag in .html file:
-        <script type="text/javasrcript" scr="path-to-javascript-file.js"></script>
+
+    Using the script tag in .html header:
+    <script type="text/javasrcript" scr="path-to-javascript-file.js" defer></script>
 
 #### How to include a CSS file in a webpage?
-    # Using the link tag in .html file
-        <link rel="stylesheet" href="{{ url_for('folder-where-the-SCC-is', filename='style/form.css') }}">
+    
+    Using the link tag in .html file
+    <link rel="stylesheet" href="{{ url_for('folder-where-the-SCC-is', filename='style/form.css') }}">
 
 #### How to select an element using its id in CSS?
-    # you have to use the hashtag (#) + the element id name
+
+    you have to use the hashtag (#) + the element id name
 
 #### How to select elements using their class in CSS?
-    # you have to use the dot (.) + the element class name
+
+    you have to use the dot (.) + the element class name
 
 #### How to select elements which have the ‘alpha’ and ‘beta’ classes in CSS?
-    # .alpha {...} 
-    # .beta {...}
+
+    .alpha {...} 
+    .beta {...}
 
 #### How to select all list items in all ordered lists on the page in CSS?
-    # you can reach by using the ordered tag wich is "ol": .ol {...}
+
+    you can reach by using the ordered tag wich is "ol": ol li {...}
 
 #### How to select elements using their attributes in CSS?
-    # [data-value] = attribute exist
-        [data-value="foo"]= attribute has this exact value
-        [data-value="foo"] = attribute value contains this value somwhere in it
-        [data-value~="foo"] = attribute has this value in a space-separeted list somewhere/}
-        [data-value^="foo"] = attribute value stats with this
-        [data-value|="foo"] = attribute value start with this in a dash-separeted list
-        [data-value$="foo"] = attribute value ends with this
+
+    [attribute] = selector is used to select elements with a specified attribute.
+    [attribute="value"]= selector is used to select elements with a specified attribute and value.
+    [attribute~="value"] = selector is used to select elements with an attribute value containing a specified word.
+    [attribute^="value"] = elector is used to select elements with the specified attribute, whose value starts with the specified value.
+    [attribute|="value"] = selector is used to select elements with the specified attribute, whose value can be exactly the specified value.
+    attribute$="value"] = selector is used to select elements whose attribute value ends with a specified value.
 
 #### What are UX and UI?
-    # UI: the "UI" in UI design stands for "user interface". The user interface is the graphical layout of an application.
-        It consists of the button users click on, the text they read, the images, sliders, text entry fields, and all the rest
+
+    UI: IT STAND FOR "USER INTERFACE". IT IS THE GRAPHICAL LAYOUT OF AN APPLICATION.
+        It consists of the button, that users click on, the text they read, the images, sliders, text entry fields, and all the rest
         of the items the user interacts with. This includes screen layout, transistion, interface animation and every single micro-interaction.
         Any sort of visual element, interaction or animation must all be designed.
-    # UX stands for "user experience". A user's experience of the app is determined by how they interact with it. User experience is determined
-        by how easy or difficult it is to interact with the user interface elements that the UI designer have created
+
+    UX: IT STANDS FOR "USER EXPERIENCE".IT IS DETERMINED BY HOW THEY INTERACT WITH IT.
+        It is also determined by how easy to interact with the user interface elements that the UI designer have created.
 
 #### Please list some points that an application should fulfill to have good UX.
-    # Meets the users's needs, have a clear hierarchy, Consistency Understand, accessibility, usability
+
+    Usefullness, Useability, Desireable (more attractive)
+    Meets the users's needs, have a clear hierarchy, consistency understand, accessibility, usability
 
 #### What is XML, XSLT, DTD?
-    # HTML is an application of SGML (standard Generalized Markup language). XML is simplified subset of SGML.
-    # DTD (ducoment Type Declaration) is a set of instructions that states what tags are useable and what reacton they create.
+
+    HTML is an application of SGML (standard Generalized Markup language). XML is simplified subset of SGML.
+    DTD (Ducoment Type Declaration) is a set of instructions that states what tags are useable and what reaction they create.
         Each browser has DTD set in its programming set by the browser companies. This is how some tags will work in only one type of browser or version.
         It has the tags stated in its DTD.
-    # XML makes it possible to create unique tags sets by appliying its own DTD. This makes DTD more compatable with more browser.
-    # XSLT (sXtensible Srylesheet Language Transformation): It is a strong version of CSS that formats the XML page for viewing.
+    XML makes it possible to create unique tags sets by appliying its own DTD. This makes DTD more compactable with more browser.
+    XSLT (sXtensible Srylesheet Language Transformation): It is a strong version of CSS that formats the XML page for viewing.
 
 #### What is the difference between HTML and XML?
-    # HTML tags are predefined tags where as XML tags are user defined tags. HTML tags are limited number of tags where as XML tags are extensible.
-        HTML tags are case insensitive where as XML tags are sensitive. HTML tags re meant to displaying the data but not for
-        describing the data where as XML tags are meant for descriping the data. HTML focuses on how data looks where as XML focuses on what data is.
 
+    HTML FOCUSES ON HOW DATA LOOKS, WHERE AS XML FOCUESE ON WHAT THE DATA IS.
+    HTML tags are predefined tags, where as XML tags are user defined tags. HTML tags are limited number of tags, where as XML tags are extensible.
+    HTML tags are case insensitive where as XML tags are sensitive. HTML tags are meant to displaying the data but not for
+    describing the data where as XML tags are meant for descriping the data. 
 
 ### Javascript
 
 #### What is javascript?
-    # JS is a scripting laguage designed to control web page contetn. It can update and change both HTML and CSS.
-        It can calculat, manipulate and validate data.
+
+    JS is a scripting laguage designed to control web page content. It can update and change both HTML and CSS.
+    It can calculat, manipulate and validate data.
 
 #### When to use AJAX? Bring examples of its usage.
-    # AJAX stands for Asynchronous Javascript and XML.
-        AJAX programming is used, for exchanging data in the background without actually distrubing the user experience,
-        and for rendering the access of data more efficiently and effectievly.
-    # Form validation: It's so much nicer when the form tells you as you are typing if you'have filled it ou wrong or not.
-    # Comments: when a commenter hits the comment button, it's nice to see the comment appear immediately on the page.
-    # login forms, Auto-Complete (when searching for example), Voting and Rating, Updating With User Content
+
+    AJAX stands for Asynchronous Javascript and XML.
+        AJAX programming is used, for exchanging data in the background without actually reload the page and distrubing the user experience.
+        It renderes the access of data more efficiently.
+    Form validation: It's so much nicer when the form tells you as you are typing if you'have filled it ou wrong or not.
+    Comments: when a commenter hits the comment button, it's nice to see the comment appear immediately on the page.
+    login forms, Auto-Complete (when searching for example), Voting and Rating, Updating With User Content
 
 #### What is DOM and how to manipulate it from Javascript?
-    # DOM (Document Object Model) is representative diplaying for the according HTML document, and those object can be modified.
-        Creating removing or replacing an element, Modifying an element' text and/or HTML content. Getting an element contetnt and working with it.
+
+    DOM (Document Object Model) is representative diplaying for the according HTML document, and those object can be modified.
+    Creating, removing or replacing an element, Modifying an element' text and/or HTML content. Getting an element contetnt and working with it.
 
 #### What are events and how/why to use them in Javascript?
-    # Event occur when the page loads. When user interact (clicks, hovers, changes) and myraig other times, and can be triggered manually too.
-        The addEventListener method is the most preferred way to add an even listener to window, document or any other element in the DOM,
-        becaue JavaScript in the browser uses an event-driven programming moder. Everything stats by following an event.
+
+    for example an event occur when the page loads. also can be triggered manually too, when user interact (clicks, hovers, changes).
+    The addEventListener method is the most preferred way to add an event listener to window, document or any other element in the DOM,
+    becaue JavaScript in the browser uses an event-driven programming model. Everything stats by following an event.
 
 #### What is event bubbling/capturing? How would you use it?
-    # Event bubbling and capturing are two ways of event propagation in the HTML DOM API.
-        When an event occurs in an element inside another element, and both elements have registered a hagle for that event.
-        When an event happens on an element, if first runs the handles on it, then on its parent, then all the way up on other ancertos.
-        With capturing, the event is furst captured by the outermost element and propagated to the inner element.
+
+    Event bubbling and capturing are two ways of event propagation in the HTML DOM API.
+    When an event occurs in an element inside another element, and both elements have registered an event.
+    When an event happens on an element, it first runs the handles on it, then on its parent, then all the way up on other ancertos.
+    With capturing, the event is first captured by the outermost element and propagated to the inner element.
 
 #### What is JSON and how do we use it?
-    # JSON is a short for JavaScrip Object Notation, and it is a way to store information in an organized, easy-to-access manner.
+
+    JSON is a short for JavaScrip Object Notation, and it is a way to store information in an organized, easy-to-access manner.
         In a nutshell, it gives us a human-readable collection of data that we can access in a really logical manner.
         JSON (in JavaScript) is a string.
-    # How to use it: in short, you are forced to comminacate things using key-value pairs and arrays.
+    How to use it: in short, you are forced to comminacate things using key-value pairs and arrays.
         JSON is basically a way of communicatin data to someone, with very specific rules.
 
 
@@ -470,96 +519,124 @@
 ### Version control
 
 #### What type of branching strategy would you use?
-    # Code in master is deployable at all times. When you want to start working on a new task, you should create a new branch off
-        of master and give it a descriptive name. Commit to that branch localy and regularly send you work to the same-named branch on the server.
-        Open a pull request when you feel your changes are ready to be merged ( or even if you aren't so sure, but would like some feedback).
-        After the new feature is revised and approved, you can merge it into master. Once your changes are merged and pushed to the master
-        you can and should delete that branch.
+
+    Code in master/development is deployable at all times. When you want to start working on a new task, you should create a new branch off
+    of master/development and give it a descriptive name. Commit to that branch localy and regularly send my work to the same-named branch on the server.
+    Open a pull request when you feel your changes are ready to be merged (or even if you aren't so sure, but would like some feedback).
+    After the new feature is revised and approved, you can merge it into master/development. Once my changes are merged and pushed to the master/development
+    I would delete that branch.
 
 #### What would you do if you find a bug on the production code (master branch)?
-    # I would report it to my project manager, and she/he would tell us how or who should fix it.
-        Alternatively, I would open a new branch, locate and fix the bug after testing, I would merge it bakc to the master.
+
+    I would report it to my project manager, and she/he would tell us how or who should fix it.
+    Alternatively, I would open a new branch, locate and fix the bug and after testing, I would merge it back to the master/development.
 
 #### How can you move changes from one branch to another in GIT?
-    # Create and checkout to a new branch will copy the actual state of the original branch where can be rollback or set back status.
-        Otherwise Rebase or merge bring changes from another branch into the current one.
+
+    Create and checkout to a new branch will copy the actual state of the original branch where can be rollback or set back status.
+    Otherwise Rebase or merge bring changes from another branch into the current one.
 
 #### How does a VCS help with code reviews?
-    # Modern version control system are designed to help adress problems that teams face when collaborating.
-        Breaking down silos and embracing more prespectives and conversations can enable you and your team to deliver better software.
+
+    Modern version control system are designed to help adress problems that teams face when collaborating.
+    Breaking down walls and see more prespectives and conversations can enable you and your team to deliver better software.
 
 #### What is your favorite git command? Why?
-    # Git merge: becuase that means I am ready with my task so well, so I can merge into the master branch.
+
+    Git merge: becuase that means I am ready with my task well, so I can merge into the master/development branch.
 
 #### What does remote/local mean in Git? 
-    # Remote: Repository's server ther storing the reop online
-    # Local: The repository's offline, local, on-disk sotred version, which we make the changes on.
+
+    Remote: Repository's server ther storing the repo online
+    Local: The repository's offline, local, on-disk sotred version, which we make the changes on.
 
 
 ### DevOps
 
 #### Why is it good to use a package manager software?
-    # They prevent mixing incompatlibe files/libraries. They establish a shared converntion for managing libraries.
-        When new developers come onto your project, team, company they are likely to konow the converntions of the package manager.
-        This means they don't have to waste time figuring out the fine detalis of how libraries are managed in you code base.
-        They give you a standard way of versioning and distributing you own dependencies and files that don't belong in you repository.
-        Some package managers provide additional features during installation. They tend to centralize hostin and distribution.
-        Help with complex dependency trees and that can be managed downloading a dependency together with all its dependencies.
-        Packages contain metadata, such as the software's name, description of its purpose, version number, vendor, checksum,
-        and a list of dependencies necessary for the software to run properly.
+
+    pip, npm, Maven
+
+    A package manager is a programming language's tool to create project environments and easily import external dependencies.
+    You don't have to reinvent the wheel and able to make the most of the tools at your disposal.
+    When working on a project or library, you may package your project and publish it for others.
+
+    In this case a new developers come onto your project, team, company they are likely to know the converntions of the package manager.
+    This means they don't have to waste time figuring out the fine detalis of how libraries are managed in you code base.
+
+    Some package managers provide additional features during installation. They tend to centralize hostin and distribution.
+    Help with complex dependency trees and that can be managed downloading a dependency together with all its dependencies.
+    Packages contain metadata, such as the software's name, description of its purpose, version number, vendor, checksum,
+    and a list of dependencies necessary for the software to run properly.
 
 #### Why is it good to use a virtual environment for a project?
-    # Dependency Management: prevent conflicts between dependencies of multiple project.
-        Ever project can have a single unique virtual environment with the specifit packages.
+
+    Dependency Management: prevent conflicts between dependencies of multiple project.
+    Even a project can have a single unique virtual environment with the specifit packages.
 
 
 ### Networks
 
 #### What kind of HTTP status codes do you know?
-    # 200: OK
-    # 301: Moved Permanently
-    # 302: Found
-    # 400: Bad Request
-    # 401: Forbidden
-    # 404: Not Found
-    # 405: Method Not Allowed
-    # 408: Request Timeout
-    # 500: Internal Server Error
-    # 504: Gateway Timeout
 
-#### What is a API?
-    # API (Application Programming Interface) is sessentailly a way for apps to borrow functionality and data from each other.
-        An API allows two software programs to communicate with each other. One program can call another programs API to get acces to
-        data or functionality of the other program. An API is he messenger that tkaes a request, tells a system what you want to do
-        and then returns the response back to you.
+    - 200: OK
+    - 301: Moved Permanently
+    - 302: Found
+    - 400: Bad Request
+    - 401: Forbidden
+    - 404: Not Found
+    - 405: Method Not Allowed
+    - 408: Request Timeout
+    - 500: Internal Server Error
+    - 504: Gateway Timeout
+
+#### What is an API?
+
+    API (Application Programming Interface) is sessentailly a way for apps to borrow functionality and data from each other.
+    An API allows two software programs to communicate with each other. One program can call another programs API to get acces to
+    data or functionality of the other program. An API is the messenger that takes a request, tells a system what you want to do
+    and then returns the response back to you.
 
 #### What is REST API?
-    # A REST API uses HTTP requests to GET, PUT, POSR, and DELETE data.
+
+    A REST API uses HTTP requests to GET, PUT, POSR, and DELETE data.
+    It's a simple and standardized software architecture style, a specific type of API.
+    restful web service is a service that uses REST APIs to communicate.
+
 
 #### What is JSON? When to use?
-    # JSON (JavaSricp Object Notation) is a way to store information in an organizes, eady-toaccess mnner.
+
+    JSON (JavaSricp Object Notation) is a way to store information in an organizes, ready-to-access manner.
         In a nutshell, it gives us a human-readable collection of data that we can access in really logical manner.
         JSON (in JavaScript) is a string.
-    # How to use it: In a short, you are forced to communicate things using key-value pairs and arrays.
+    How to use it: In a short, you are forced to communicate things using key-value pairs and arrays.
         JSON is basically a way of communicating data to someone, with very specific rules.
         For fast and effective communication between server-user for example.
 
 #### What is TCP/IP? What layers does it define, what are they responsible for?
-    # Transmission Control Protocol/Internet Protocol (TCP/IP) is the language a computer uses to access the internet. In consists of a suite of
-        protocols designes to establish a network of networks to provide a host with access to the internet.
-        It's like a set of rules to allow communication to each other.
+
+    IT'S LIKE A SET OF RULES TO ALLOW COMPUTERS TO COMMUNICATION BETWEEN EACH OTHER. IT GARANTES YOU THAT YOU RECIEVE ALL THE DATA IN THE RIGHT ORDER
+    Transmission Control Protocol/Internet Protocol (TCP/IP) is the language a computer uses to access the internet. In consists of a suite of
+    protocols designes to establish a network of networks to provide a host with access to the internet.
 
 #### What’s the difference between TCP and UDP?
-    # TCP (Transmission Control Protocol) is connection oriented, whereas UDP (User Datagram Protocol) is connection-less.
-        This means that TCP track all data sent, requirint aacknowledgement for each octet (generally).
-    # UDP does not use acknowledgment at all, and it usually used for protocols where a few lost datagrams do not matter.
+
+    TCP (Transmission Control Protocol) is connection oriented protocol, where as UDP (User Datagram Protocol) is connection-less.
+    - TCP first must actknowledge a session between the two computer that are communicating. They verify a connection before communicating.
+        TCP track all data sent and guarantee all the data is recieved.
+    - UDP (fire and foreget protocol) does not use actknowledgment at all. It doesn't create session between two computers and doesn't guarantee all the data will be recieved.
+        and it usually used for protocols where a few lost datagrams do not matter. If data is missing the reciever ask for more data.
+    UDP is faster than TCP
 
 #### How does an HTTP Request look like? What are the most relevant HTTP header fields?
-    # A simple request message from a client computer consists of the following component:
-        A request line to get required resource, for ecapmle a request GET /contetn/page1.html is a requesting a resource called
-        /content/page1.html for the server. Header (Example-Accept_language: EN). An empty line. A message body which is optional.
-        All the lines should en with a carriage return and line feed. The empty line shozld only contains carriage return
-        and line feed without any spaces.
+
+    A simple request message from a client computer consists of the following component:
+        - a Request-line -> to get required resorce (Request-Line = Method SP Request-URI SP HTTP-Version CRLF)
+            The elements are separated by space SP characters. Method=GET/POST/PUT/DELETE... .  Request-URI = "*" | absoluteURI | abs_path | authority
+        - Header (General|Request|Entity) fields:
+            Host, User-Agent, Accept, Accept-Language, Accept-Encoding, Connection
+        - an empty line 
+        - optionally a message-body
 
 #### How does an HTTP Response look like? What are the most relevant HTTP header fields?
     # A simple response from the server contains the following somponents: HTTP Status code (for ecample: HTTP/1.1 301 Moved Permanently,
