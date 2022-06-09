@@ -5,16 +5,16 @@
 ### Error handling
 
 #### What does 'fail fast' mean in terms of exception handling? Why is it a good practice?
+
     When a problem occurs, it fails immediately and visibly. If something unusually or unexpectedly occurs,
-    let the software fail immediately instead of postponing the failure or working around the failure.
+    let the software fail immediately instead of postponting the failure or working around the failure.
     The fail fast principle stands for stopping the current operation as soon as any unexpected error occurs.
     
     Why Fail-Fast?
-    # Bugs are earlier to detect, easier to reproduce and faster to fix.
-    # It’s faster to stabilize softwares.
-    # Fewer bugs and defects will go into production.
-    # The cost of failures and bugs are reduced.
-
+    - Bugs are earlier to detect, easier to reproduce and faster to fix.
+    - It’s faster to stabilize softwares.
+    - Fewer bugs and defects will go into production.
+    - The cost of failures and bugs are reduced.
 
 
 ## Computer Science
@@ -45,42 +45,38 @@
 #### What is the Big O time complexity of the common operations in an ArrayList, LinkedList, HashMap? And of a bubble sort, quicksort, finding items in a Binary Search tree?
 
     ArrayList:
-
-    # Adding to the beginning (or near the beginning): the whole list needs to be "re-indexed": O(n)
-    # Adding to the end (or near to the end): O(1)
-    # Remove from the end: O(1)
-    # Remove from elsewhere: "re-indexing": O(n)
-    # Get (by index): O(1)
-    # Contains: O(n)
+    - Adding to the beginning (or near the beginning): the whole list needs to be "re-indexed": O(n)
+    - Adding to the end (or near to the end): O(1)
+    - Remove from the end: O(1)
+    - Remove from elsewhere: "re-indexing": O(n)
+    - Get (by index): O(1)
+    - Contains: O(n)
 
     LinkedList:
-
-    # Adding to the beginning or end: O(1)
-    # Adding elsewhere (somewhere middle): O(n)
-    # Remove: O(n)
-    # Get: O(n)
-    # Contains: O(n)
+    - Adding to the beginning or end: O(1)
+    - Adding elsewhere (somewhere middle): O(n)
+    - Remove: O(n)
+    - Get: O(n)
+    - Contains: O(n)
     
     HashMap:
-
-    # Every task takes a single operation (except in edge cases, like hash clash).
-    # Bubble Sort: -needs a nested for loop: O(n^2)
+    - Every task takes a single operation (except in edge cases, like hash clash).
+    - Bubble Sort: -needs a nested for loop: O(n^2)
 
     Quicksort:
-
-    # On average: O(log n)
-    # Worst case: O(n^2)
+    - On average: O(log n)
+    - Worst case: O(n^2)
 
     Binary Search Tree:
-
-    # O(log n)
-    # Worst case (degenerate tree): O(n)
+    - O(log n)
+    - Worst case (degenerate tree): O(n)
 
 #### How does HashMap work?
+
     It is a data structure which allows us to store object and retrieve it in constant time O(1) provided we know the key.
     In hashing, hash functions are used to link key and value in HashMap.
     Objects are stored by calling put(key, value) method of HashMap and retrieved by calling get(key) method.
-    HashMap internally stores mapping in the form of Map.Entry object which contains both key and value object.
+    HashMap internally stores mapping in the form of Map. Entry object which contains both key and value object.
     When you want to retrieve the object, you call the get() method and again pass the key object.
 
 #### Why is it important for keys in a map to have an immutable type? (Consider String for example.)
@@ -97,6 +93,25 @@
 
     You could use REST, and await response. Behind the backend we can create a connection to the server,
     get data by executing an sql command, get(or not) a return value, and close the connection.
+
+    DataSource dataSource = connect();
+
+    private DataSource connect() throws SQLException {
+        PGSimpleDataSource dataSource = new PGSimpleDataSource();
+        String dbName = System.getenv("DB_NAME");
+        String user = System.getenv("USER_NAME");
+        String password = System.getenv("PASSWORD");
+
+        dataSource.setDatabaseName(dbName);
+        dataSource.setUser(user);
+        dataSource.setPassword(password);
+
+        System.out.println("Trying to connect");
+        dataSource.getConnection().close();
+        System.out.println("Connection ok.");
+
+        return dataSource;
+    }
 
 #### What do you know about database normalization?
 
@@ -152,7 +167,7 @@
 
 #### What is a class?
 
-    A class describes what the object will be, but is separate from the object itself. 
+    A class describes what the object will be, but it is separate from the object itself. 
     A class is a template for objects that share similar behaviours/properties.
 
     (The first step is to define the class, which then becomes a blueprint for object creation.
@@ -283,7 +298,12 @@
 
 #### What are the Object Oriented Principles? Explain the concepts with realistic examples!
 
-    # Encapsulation: The implementation and state of each object are privately held inside a defined boundary, or class.
+    - Encapsulation: group related veriables and functions together TO REDUCE COMPLEXITY + ICREASE REUSEABILITY
+    - Abstaction: hide the detalies and the complexity and show only the ascensions TO REDUCE COMPLEXITY + ISOLATE IMPACT OF CHANGES
+    - Inharitance: ELIMINATE REDUNDANT CODE such as use superclasses or base classes
+    - Polymorphism REFACTOR SWITCH CASE / IF STATEMENTS. this way each subclass can behave differently.
+
+    - Encapsulation: The implementation and state of each object are privately held inside a defined boundary, or class.
     Other objects do not have access to this class or the authority to make changes but are only able to call a list of public functions, or methods.
     This characteristic of data hiding provides greater program security and avoids unintended data corruption.
     Another way to think about encapsulation is, it is a protective shield that prevents the data from being accessed by the code outside this shield.
@@ -298,7 +318,7 @@
          Ez azt jelenti, hogy nem tudjuk pontosan, hogy egy objektumban hogyan vannak az adatok ábrázolva, sőt a műveletek implementációit sem ismerjük.
          Az információk elrejtése az objektum biztonságát szolgálja, amelyeket csak a ellenőrzött műveleteken keresztül érhetünk el.)
 
-    # Abstraction: Objects only reveal internal mechanisms that are relevant for the use of other objects, hiding any unnecessary implementation code.
+    - Abstraction: Objects only reveal internal mechanisms that are relevant for the use of other objects, hiding any unnecessary implementation code.
     This concept helps developers make changes and additions over time more easily. Only the essential details are displayed to the user.
     The trivial or the non-essentials units are not displayed to the user. Ex: A car is viewed as a car rather than its individual components.
     Data Abstraction may also be defined as the process of identifying only the required characteristics of an object ignoring the irrelevant details.
@@ -318,7 +338,7 @@
         (Interfész: Viselkedésmódot definiál. Gyakorlatilag egy művelethalmaz deklarációját jelenti. Ha egy osztály implementál egy adott interfészt,
          akkor példányai az interfészben meghatározott viselkedéssel fognak rendelkezni. Csak konstans adattagokat tartalmazhat és minden tagja nyilvános.)
 
-    # Inheritance: Relationships and subclasses between objects can be assigned, allowing developers to reuse a common logic while still maintaining a unique hierarchy.
+    - Inheritance: Relationships and subclasses between objects can be assigned, allowing developers to reuse a common logic while still maintaining a unique hierarchy.
     This property of OOP forces a more thorough data analysis, reduces development time and ensures a higher level of accuracy.
     It is the mechanism in Java by which one class is allow to inherit the features(fields and methods) of another class.
 
@@ -329,7 +349,7 @@
          Az utódosztály adatokat és műveleteket (viselkedésmódot) örököl, kiegészíti ezeket saját adatokkal és műveletekkel, illetve felülírhat bizonyos műveleteket.
          A kód újrafelhasználásának egyik módja. Megkülönböztetünk egyszeres és többszörös örökítést.)
 
-    # Polymorphism: Objects are allowed to take on more than one form depending on the context. The program will determine
+    - Polymorphism: Objects are allowed to take on more than one form depending on the context. The program will determine
     which meaning or usage is necessary for each execution of that object, cutting down on the need to duplicate code.
     Polymorphism in Java are mainly of 2 types: Overloading and Overriding.
 
@@ -370,12 +390,12 @@
 
 #### How do you make a class immutable? What do you need to watch out for?
 
-    # Declare the class as final so it can’t be extended.
-    # Make all fields private so that direct access is not allowed.
-    # Don’t provide setter methods for variables
-    # Make all mutable fields final so that it’s value can be assigned only once.
-    # Initialize all the fields via a constructor performing deep copy.
-    # Perform cloning of objects in the getter methods to return a copy rather than returning the actual object reference.
+    - Declare the class as final so it can’t be extended.
+    - Make all fields private so that direct access is not allowed.
+    - Don’t provide setter methods for variables
+    - Make all mutable fields final so that it’s value can be assigned only once.
+    - Initialize all the fields via a constructor performing deep copy.
+    - Perform cloning of objects in the getter methods to return a copy rather than returning the actual object reference.
 
 #### How many instances can be created for an abstract class?
 
@@ -423,8 +443,8 @@
 
 #### What does the ‘static’ keyword mean?
 
-    Everything in Java must have a type. static tells Java compiler that this is a method that is part of the class,
-    but is not a method for any other instance of the class. We can apply java static keyword with variables, methods, blocks and nested class.
+    Everything in Java must have a type. Static tells Java compiler that this is a method that is part of the class,
+    but not a method for any other instance of the class. We can apply java static keyword with variables, methods, blocks and nested class.
 
 #### Why is the main() method declared as static? Explain.
 
@@ -432,10 +452,10 @@
     JVM can this way just start the main method, and not allocating it memory.
 
     public static void main(String[] args)
-        # It must be public to be reachable from the outer world.
-        # It must be static to be callable before creating any objects.
-        # It is void since by design it does not return anything when the program ends normally.
-        # It is possible to pass (multiple) arguments after the name of the class to the java runtime
+        - It must be public to be reachable from the outer world.
+        - It must be static to be callable before creating any objects.
+        - It is void since by design it does not return anything when the program ends normally.
+        - It is possible to pass (multiple) arguments after the name of the class to the java runtime
             – these arguments are visible by the method through the args parameter.
 
 #### What is the default access modifier in a class?
@@ -459,7 +479,8 @@
 
 #### What is the difference between long and Long?
 
-    long is a primitive type thus must have a value, Long is reference type thus can be null.
+    long is a primitive type thus must have a value and It stores an actual value.
+    Long is reference type thus can be null and It stores a reference to an object containing a value.
 
 #### Can a long store bigger numbers than a Long?
 
@@ -467,26 +488,26 @@
 
 #### What kind of packages do you know under java.util.* ? Bring at least 3 examples.
 
-    java.util.Arrays
+    java.util.ArrayList
     java.util.HashMap
+    java.util.Set
     java.util.Scanner
-    java.util.Collections
 
 #### What are the access modifiers in Java? Which one could we use for class?
 
     Access modifiers in Java helps to restrict the scope of a class, constructor, variable, method or data member.
     There are four types of access modifiers available in Java:
 
-    # Default – No keyword required: When no access modifier is specified for a class, method or data member
+    - Default – No keyword required: When no access modifier is specified for a class, method or data member
         – It is said to be having the default access modifier by default. Having default access modifier are accessible only within the same package.
         >> [default] - accessible to the class and package.
-    # Private - The methods or data members declared as private are accessible only within the class in which they are declared.
+    - Private - The methods or data members declared as private are accessible only within the class in which they are declared.
         Any other class of same package will not be able to access these members. Top level Classes or interface can not be declared as private,
         they apply only to nested classes.
         >> private - accessible to the classes only.
-    # Protected: The methods or data members declared as protected are accessible within the same package or sub classes in different packages.
+    - Protected: The methods or data members declared as protected are accessible within the same package or sub classes in different packages.
         >> protected - accessible to class, package, and subclasses.
-    # Public: The public access modifier has the widest scope among all other access modifiers.
+    - Public: The public access modifier has the widest scope among all other access modifiers.
         Classes, methods or data members which are declared as public are accessible from everywhere in the program.
         There is no restriction on the scope of a public data members.
         >> public - accessible to global.
@@ -500,9 +521,9 @@
 
 #### When would you use a private/protected/public attribute? What is the difference?
 
-    # private scope when you want your property/method to be visible in its own class only.
-    # protected scope when you want to make your property/method visible in all classes that extend current class including the parent class.
-    # public scope to make that property/method available from anywhere, other classes and instances of the object.
+    - private scope when you want your property/method to be visible in its own class only.
+    - protected scope when you want to make your property/method visible in all classes that extend current class including the parent class.
+    - public scope to make that property/method available from anywhere, other classes and instances of the object.
 
 #### How do you prevent developers from subclassing a class?
 
@@ -510,9 +531,9 @@
 
 #### How do you prevent developers from overriding a method in a subclass?
 
-    # using the static keyword
-    # using the final keyword (because there is no way someone can override final methods.) 
-    # using the private access modifier (private method is not accessible in subclass, which means they can not be overridden as well)
+    - using the static keyword
+    - using the final keyword (because there is no way someone can override final methods.) 
+    - using the private access modifier (private method is not accessible in subclass, which means they can not be overridden as well)
 
 #### How do you prevent developers from changing the value of a variable?
 
@@ -555,16 +576,16 @@
 #### Which interfaces extend the Collection interface in Java. Which classes?
 
     The Java Collections Framework hierarchy consists of two distinct interface trees:
-        # Collection interface
-        # Map interface
+        - Collection interface
+        - Map interface
 
     The Collection interface provides the basic functionality used by all collections,
     such as add and remove methods. Its subinterfaces the Set, List, and Queue, provide for more specialized collections.
-        # The Set interface does not allow duplicate elements.
-        # SortedSet is a subinterface of Set interface, that provides for ordering of elements in the set.
-        # The List interface provides for an ordered collection, for situations in which you need precise control over where each element is inserted.
-        # The Queue is a collection for holding elements prior to processing. Elements in a Queue are typically ordered in on a FIFO (first-in-first-out) basis.
-        # The Deque is a subinterface of Queue, a double-ended-queue. The elements can be used in both LIFO and FIFO.
+        - The Set interface does not allow duplicate elements.
+        - SortedSet is a subinterface of Set interface, that provides for ordering of elements in the set.
+        - The List interface provides for an ordered collection, for situations in which you need precise control over where each element is inserted.
+        - The Queue is a collection for holding elements prior to processing. Elements in a Queue are typically ordered in on a FIFO (first-in-first-out) basis.
+        - The Deque is a subinterface of Queue, a double-ended-queue. The elements can be used in both LIFO and FIFO.
 
 #### What is the connection between equals() and hashCode()? How are they used in HashMap?
 
@@ -572,26 +593,28 @@
     hashcode(): a method provided by java.lang.Object that returns an integer representation of the object memory address.
 
     HashMap uses hashCode(), == and equals() for entry lookup. The lookup sequence for a given key 'k' is as follows:
-        # Use k.hashCode() to determine which bucket the entry is stored
-        # If found, for each entry's key k1 in that bucket, if k == k1 || k.equals(k1), then return k1's entry
-        # Any other outcomes, no corresponding entry
+        - Use k.hashCode() to determine which bucket the entry is stored
+        - If found, for each entry's key k1 in that bucket, if k == k1 || k.equals(k1), then return k1's entry
+        - Any other outcomes, no corresponding entry
 
 #### What is the difference between checked exceptions and unchecked exceptions? Could you bring example for each?
 
-    A checked exception is caught at compile time whereas a runtime or unchecked exception is, as it states, at runtime.
+    A checked exception is caught at compile time (such as SqlExceptions, IOExceptions) and inherit Throwable class.
+    Whereas a runtime or unchecked exception is, as it states, at runtime. The class which inherin RuntimeExceptions (NullPointerException, IndexOutOfBoundsException).
     A checked exception must be handled either by re-throwing or with a try catch block, whereas an unchecked isn't required to be handled.
 
 #### What is Error in Java and how does it relate to Exception?
 
-    Both errors and exceptions are subclasses of the throwable class.
+    Both errors and exceptions are subclasses of the Throwable class.
 
-    Exceptions are related to the application itself while errors are related to the environment (JVM) in which the application is running.
-    Errors cannot and should not be handled or caught. They signal severe problems during runtime that should stop execution.
+    Exceptions are related to the application itself while errors (StackOverflowError, VirtualMachineError, OutOfMemoryError)
+    are related to the environment (JVM) in which the application is running.
+    ERRORS CANNOT AND SHOULD NOT BE GANDLED OR CAUGHT. They signal severe problems during runtime that should stop execution.
     Two most common examples are stack overflow and out-of-memory errors.
 
 #### When does 'finally' block run? What it is used for? Could you give an example from your projects when you would use 'finally'?
 
-    EveryTime, it doesnt matter if we caught an exception or not. It is use to let the program run normally no matter what exception happens.
+    EveryTime, it doesn't matter if we caught an exception or not. It is use to let the program run normally, no matter what exception happens.
     for example: we are reading from a file in the try block, we want to close the file no matter what.
 
 #### What is the largest number you can work with in Java?
@@ -603,8 +626,8 @@
 
     A sub-class can always widen the access modifier, because it is still a valid substitution for the super-class.
     The access modifier of an overriding or hiding method must provide at least as much access as the overridden or hidden method.
-        # If the overridden or hidden method is public, then the overriding or hiding method must be public; otherwise, a compile-time error occurs.
-        # If the overridden or hidden method is protected, then the overriding or hiding method must be protected or public; otherwise, a compile-time error occurs.
+        - If the overridden or hidden method is public, then the overriding or hiding method must be public; otherwise, a compile-time error occurs.
+        - If the overridden or hidden method is protected, then the overriding or hiding method must be protected or public; otherwise, a compile-time error occurs.
 
 #### Can the main method be overridden? Explain your answer!
 
@@ -624,9 +647,9 @@
 
 #### What does "final" mean in case of a variable, method or a class?
 
-    # A final variable’s value cannot be modified or if it is a reference to an object, you cannot refer to another object with it.
-    # A final method cannot be overridden.
-    # A final class cannot be extended.
+    - A final variable’s value cannot be modified or if it is a reference to an object, you cannot refer to another object with it.
+    - A final method cannot be overridden.
+    - A final class cannot be extended.
 
 #### What is the super keyword?
 
@@ -653,11 +676,11 @@
     Java Annotations allow us to add metadata information into our source code, although they are not a part of the program itself.
     Annotations can be applied to the classes, interfaces, methods and fields.
 
-        # Instructions to the compiler: There are three built-in annotations available in Java (@Deprecated, @Override & @SuppressWarnings)
+        - Instructions to the compiler: There are three built-in annotations available in Java (@Deprecated, @Override & @SuppressWarnings)
             that can be used for giving certain instructions to the compiler.
-        # Compile-time instructors: Annotations can provide compile-time instructions to the compiler that can be further used by
+        - Compile-time instructors: Annotations can provide compile-time instructions to the compiler that can be further used by
             software build tools for generating code, XML files etc.
-        # Runtime instructions: We can define annotations to be available at runtime which we can access using java reflection
+        - Runtime instructions: We can define annotations to be available at runtime which we can access using java reflection
             and can be used to give instructions to the program at runtime.
 
 
